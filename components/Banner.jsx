@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Banner = ({ data }) => {
-  console.log(data.results);
+  console.log(data);
 
   //split film title
   const splitter = (title) => {
