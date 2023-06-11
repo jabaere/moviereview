@@ -1,16 +1,47 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 
-const Banner = () => {
+const Banner = ({ data }) => {
+  console.log(data.results);
+
+  //split film title
+  const splitter = (title) => {
+    const maxLength = 15; // Maximum length for the shortened title
+
+    if (title.length <= maxLength) {
+      return [title, ""]; // Return the full title and an empty second part
+    } else {
+      const firstPart = title.slice(0, maxLength); // Get the first part of the title
+      const remainingPart = title.slice(maxLength); // Get the remaining part of the title
+
+      // Find the last space character in the first part to avoid cutting words in half
+      const lastSpaceIndex = firstPart.lastIndexOf(" ");
+      const truncatedFirstPart = firstPart.slice(0, lastSpaceIndex);
+      const truncatedRemainingPart =
+        firstPart.slice(lastSpaceIndex + 1) + remainingPart;
+
+      return [truncatedFirstPart.trim(), truncatedRemainingPart.trim()]; // Trim any leading or trailing whitespace
+    }
+  };
+
+  const [firstPart, secondPart] = splitter(data.results[0].title);
+
+  const imagepath = "https://image.tmdb.org/t/p/original";
   return (
     <div className="w-full mt-16 flex relative gap-[4rem]">
       <div className="left-banner flex">
         <div className="bg-color-rose w-[735px] h-[735px] object-cover rounded-[50%] flex justify-center items-center">
           <Image
-            src={"/images/mario.jpg"}
+            src={
+              data.results[0]?.poster_path
+                ? imagepath + data.results[0]?.poster_path
+                : "/images/mario.jpg"
+            }
             width={600}
             height={600}
             className="w-[600px] h-[600px] object-cover rounded-[50%]"
+            alt="image"
           />
         </div>
         <div className="left-side-text absolute w-[180px] h-[18.84px] -rotate-90 left-[-80px] top-[600px]">
@@ -26,14 +57,13 @@ const Banner = () => {
         <div className="right_top">
           <div className="banner_text w-[41rem]">
             <h1 className="not-italic font-black text-[10rem] leading-[97.5%] tracking-[-0.005em] text-secondary-brown">
-              Super{" "}
+              {firstPart}{" "}
               <span className="text-btn-color opacity-100 blur-[1px]">
-                Mario
+                {secondPart}
               </span>
             </h1>
             <p className="pt-[4rem] not-italic font-medium text-[1.7rem] leading-[173%] tracking-[-0.01em] text-black font-archivo">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat
-              sunt iste tenetur aliquid earum magnam rem ipsa deleniti alias
+              {data.results[0]?.overview}
             </p>
           </div>
           <Link href="/popular" className="pt-[4rem] inline-block">

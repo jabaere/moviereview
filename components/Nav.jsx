@@ -11,12 +11,14 @@ const rubik_Puddles = Rubik_Puddles({
   variable: "--font-rubic",
 });
 
+const navbarItems = ["/", "/Popular", "/Upcoming", "/Top"];
+
 const Nav = () => {
   const [providers, setProviders] = useState(null);
   const [togleDropDown, setTogleDropDown] = useState(false);
   const { data: session } = useSession();
   const [activeItem, setActiveItem] = useState("/");
-  const navbarItems = ["/", "/Popular", "/New", "/Top"];
+
   const pathname = usePathname();
   useEffect(() => {
     const newProvider = async () => {
@@ -45,13 +47,14 @@ const Nav = () => {
           </Link>
         </div>
         <div className="flex flex-between gap-[3.4rem] w-[48.7rem] justify-center">
-          {navbarItems.map((element) => (
+          {navbarItems?.map((element, index) => (
             <Link
               className={`link_item ${
                 pathname === element.toLowerCase() ? "active" : ""
               }`}
               href={`${element.toLowerCase()}`}
-              onClick={() => handleNavClick(item)}
+              onClick={() => handleNavClick(element)}
+              key={index}
             >
               {element === "/" ? "Home" : element.slice(1)}
               <hr

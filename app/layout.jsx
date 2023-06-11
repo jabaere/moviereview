@@ -1,6 +1,8 @@
+"use client";
 import "@/styles/globals.css";
 import Nav from "@/components/Nav";
 import Provider from "@/components/Provider";
+import { Provider as StoreProvider } from "jotai";
 export const metadata = {
   title: "Review",
   description: "Review movies",
@@ -16,7 +18,7 @@ const RootLayout = ({ children }) => {
           </div>
           <main className="app">
             <Nav />
-            {children}
+            <StoreProvider>{children}</StoreProvider>
           </main>
         </Provider>
       </body>

@@ -20,6 +20,9 @@ module.exports = {
         "btn-color": "#F89954",
         "color-rose": "#F6EDDB",
       },
+      gridTemplateColumns: {
+        fluid: "repeat(auto-fit, minmax(25rem,1fr))",
+      },
     },
   },
   plugins: [],
