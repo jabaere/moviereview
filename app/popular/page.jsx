@@ -1,6 +1,6 @@
 import Movie from "@/components/Movie";
-
-export default async function Home() {
+import Pagination from "@/components/Pagination";
+export default async function Popular() {
   const data = await fetch(
     `https://api.themoviedb.org/3/movie/popular?api_key=${process.env.NEXT_PUBLIC_API_KEY}&page=1`
   );
@@ -17,6 +17,11 @@ export default async function Home() {
           release_date={movie.release_date}
         />
       ))}
+      {/* <Pagination
+        currentPage={page}
+        setCurrentPage={setCurrentPage}
+        data={response}
+      /> */}
     </div>
   );
 }

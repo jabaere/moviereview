@@ -127,3 +127,31 @@ select {
 .line_hidden {
   @apply opacity-0;
 }
+
+.shadow {
+  @apply shadow-[9px_-12px_400px_14px_rgba(248,150,79,1)];
+  -webkit-box-shadow: 9px -12px 400px 14px rgba(248, 150, 79, 1);
+  -moz-box-shadow: 9px -12px 400px 14px rgba(248, 150, 79, 1);
+}
+.review_card {
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[56rem] w-full h-fit;
+}
+
+.edit {
+  @apply bg-gradient-to-r from-green-400 to-green-500 bg-clip-text text-transparent text-2xl;
+}
+
+.delete {
+  @apply bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent text-2xl;
+}
+.form_textarea {
+  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+}
+
+.glassmorphism {
+  @apply rounded-xl border border-gray-200 bg-white/20 shadow-[inset_10px_-50px_94px_0_rgb(199,199,199,0.2)] backdrop-blur p-5;
+}
+
+.form_input {
+  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+}

@@ -31,6 +31,7 @@ const Nav = () => {
   }, []);
 
   const handleNavClick = (item) => {
+    localStorage.setItem("currentPage", 1);
     setActiveItem(item);
   };
 
