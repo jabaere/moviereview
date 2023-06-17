@@ -66,7 +66,7 @@ export default async function movDetails({ params }) {
 
       <button
         type="button"
-        className="btn w-[15.5rem] h-[4.4rem] bg-[primary-brown] mb-8"
+        className="btn w-[15.5rem] h-[4.4rem] bg-[primary-brown] my-8 "
         onClick={() => router.back()}
       >
         Back

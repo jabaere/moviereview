@@ -11,7 +11,7 @@ const Pagination = ({ currentPage, setCurrentPage, data }) => {
             >
               &#8249; Previous
             </button>
-            <p>{data.page + "/" + Math.round(data.total_pages / 20)}</p>
+            <p>{data.page + "/" + Math.round(data.total_results / 20)}</p>
             <button
               type="button"
               className="btn w-[15.5rem] h-[4.4rem] mb-8"

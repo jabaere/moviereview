@@ -134,7 +134,7 @@ select {
   -moz-box-shadow: 9px -12px 400px 14px rgba(248, 150, 79, 1);
 }
 .review_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[56rem] w-full h-fit;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[60rem] w-full h-fit;
 }
 
 .edit {

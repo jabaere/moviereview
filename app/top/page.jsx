@@ -1,12 +1,13 @@
 "use client";
+import { Suspense } from "react";
 import Movie from "@/components/Movie";
-import { currentPageAtom } from "@/storage/atom";
+import { currentPageTopAtom } from "@/storage/atom";
 import { useAtom } from "jotai";
 import { useState, useEffect } from "react";
 import Pagination from "@/components/Pagination";
 import { getData } from "@/utils/getMovieData";
 export default function Top() {
-  const [currentPage, setCurrentPage] = useAtom(currentPageAtom);
+  const [currentPage, setCurrentPage] = useAtom(currentPageTopAtom);
   const [data, setData] = useState([]);
 
   const getMovieData = async () => {
@@ -24,23 +25,25 @@ export default function Top() {
   //top_rated?language=en-US&page=1'
   return (
     <div className="grid gap-16 grid-cols-fluid w-full pt-14">
-      {data.results?.map((movie) => (
-        <Movie
-          key={movie.id}
-          id={movie.id}
-          title={movie.title}
-          poster_path={movie.poster_path}
-          release_date={movie.release_date}
-        />
-      ))}
+      <Suspense fallback={<p>Loading feed...</p>}>
+        {data?.results?.map((movie) => (
+          <Movie
+            key={movie.id}
+            id={movie.id}
+            title={movie.title}
+            poster_path={movie.poster_path}
+            release_date={movie.release_date}
+          />
+        ))}
 
-      {data ? (
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          data={data}
-        />
-      ) : null}
+        {data?.results ? (
+          <Pagination
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+            data={data}
+          />
+        ) : null}
+      </Suspense>
     </div>
   );
 }
