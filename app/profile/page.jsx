@@ -52,6 +52,7 @@ const UserProfile = () => {
       myReview={myReview}
       handleEdit={handleEdit}
       handleDelete={handleDelete}
+      name="My"
     />
   );
 };

@@ -10,19 +10,20 @@ const Review = ({ comment, handleTagClick, handleEdit, handleDelete }) => {
   const pathName = usePathname();
   const router = useRouter();
 
-  //   const handleProfileClick = () => {
-  //     // console.log(post);
+  const handleProfileClick = () => {
+    if (comment.creator._id === session?.user.id)
+      return router.push("/profile");
 
-  //     if (post.creator._id === session?.user.id) return router.push("/profile");
-
-  //     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
-  //   };
+    router.push(
+      `/profile/${comment.creator._id}?name=${comment.creator.username}`
+    );
+  };
   return (
     <div className="review_card my-12">
       <div className="flex justify-between items-start gap-5">
         <div
           className="flex-1 flex justify-start items-center gap-3 cursor-pointer"
-          //   onClick={handleProfileClick}
+          onClick={handleProfileClick}
         >
           <Image
             src={comment.creator.image}
@@ -60,7 +61,7 @@ const Review = ({ comment, handleTagClick, handleEdit, handleDelete }) => {
           </p>
           <p
             className="font-inter text-sm delete cursor-pointer"
-            // onClick={handleDelete}
+            onClick={handleDelete}
           >
             Delete
           </p>

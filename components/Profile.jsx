@@ -1,10 +1,10 @@
 import Review from "@/components/Review";
 
-const Profile = ({ myReview, handleEdit, handleDelete }) => {
+const Profile = ({ myReview, handleEdit, handleDelete, name }) => {
   return (
     <section className="w-full">
       <h1 className="head_text text-left">
-        <span className="blue_gradient">My Profile</span>
+        <span className="blue_gradient">{name} Profile</span>
       </h1>
 
       <div className="mt-10 prompt_layout">
