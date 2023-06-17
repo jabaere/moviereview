@@ -1,4 +1,4 @@
-import Review from "@models/prompt";
+import Review from "@models/review";
 import { connectToDB } from "@utils/database";
 
 export const GET = async (request, { params }) => {
@@ -7,11 +7,13 @@ export const GET = async (request, { params }) => {
 
     const review = await Review.findById(params.id).populate("creator");
 
-    if (!prompt) return new Response("review not found", { status: 404 });
+    if (!review) return new Response("review not found", { status: 404 });
 
     return new Response(JSON.stringify(review), { status: 200 });
   } catch (error) {
-    return new Response("Failed to fetch all reviews", { status: 500 });
+    return new Response(`Failed to fetch review id ${params.id}`, {
+      status: 500,
+    });
   }
 };
 
@@ -20,7 +22,7 @@ export const PATCH = async (request, { params }) => {
 
   try {
     await connectToDB();
-    const existingReview = await Prompt.findById(params.id);
+    const existingReview = await Review.findById(params.id);
     if (!existingReview)
       return new Response("review not found", { status: 4040 });
 
