@@ -6,6 +6,8 @@ const nextConfig = {
   },
   images: {
     domains: ["lh3.googleusercontent.com", "image.tmdb.org"], // domains: ["image.tmdb.org"]
+    loader: "custom",
+    loaderFile: "./utils/loader.js",
   },
   webpack(config) {
     config.experiments = {

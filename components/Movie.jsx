@@ -4,9 +4,7 @@ import Image from "next/image";
 
 const Movie = ({ title, id, poster_path, release_date }) => {
   const imagepath = "https://image.tmdb.org/t/p/original";
-  // const imageLoader = ({ src, width, quality }) => {
-  //   return `https://example.com/${src}?w=${width}&q=${quality || 75}`;
-  // };
+
   return (
     <div>
       <h2 className="font-archivo not-italic font-medium text-[1.5rem] leading-[173%] tracking-[-0.01em] text-secondary-brown">
