@@ -23,7 +23,7 @@ export default function Popular() {
   }, [currentPage]);
 
   return (
-    <div className="grid gap-16 grid-cols-fluid w-full pt-14">
+    <div className="grid gap-16 grid-cols-fluid w-full pt-14 justify-items-center lg:justify-items-start">
       <Suspense fallback={<p>Loading feed...</p>}>
         {data?.results?.map((movie) => (
           <Movie

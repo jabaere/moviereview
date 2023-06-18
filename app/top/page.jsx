@@ -24,7 +24,7 @@ export default function Top() {
   }, [currentPage]);
   //top_rated?language=en-US&page=1'
   return (
-    <div className="grid gap-16 grid-cols-fluid w-full pt-14">
+    <div className="grid gap-16 grid-cols-fluid w-full pt-14 justify-items-center lg:justify-items-start">
       <Suspense fallback={<p>Loading feed...</p>}>
         {data?.results?.map((movie) => (
           <Movie

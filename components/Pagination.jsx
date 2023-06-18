@@ -16,7 +16,10 @@ const Pagination = ({ currentPage, setCurrentPage, data }) => {
               type="button"
               className="btn w-[15.5rem] h-[4.4rem] mb-8"
               onClick={() => (
-                setCurrentPage(currentPage + 1),
+                setCurrentPage(
+                  currentPage < Math.round(data.total_results / 20) &&
+                    currentPage + 1
+                ),
                 localStorage.setItem("currentPage", currentPage + 1)
               )}
             >

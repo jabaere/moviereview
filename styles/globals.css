@@ -155,3 +155,9 @@ select {
 .form_input {
   @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
 }
+.desktop_menu {
+  @apply flex justify-between items-center flex-row;
+}
+.mobile_menu {
+  @apply flex justify-between items-center flex-col;
+}

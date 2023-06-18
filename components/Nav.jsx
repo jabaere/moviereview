@@ -42,63 +42,65 @@ const Nav = () => {
       >
         <div>
           <Link href="/" className="flex gap-2 flex-center">
-            <p className="text-primary-brown text-5xl">
+            <p className="text-primary-brown text-5xl flex flex-col items-center md:flex-row md:items-center">
               Movie<span className="text-primary-orange">Review</span>
             </p>
           </Link>
         </div>
-        <div className="flex flex-between gap-[3.4rem] w-[48.7rem] justify-center">
-          {navbarItems?.map((element, index) => (
-            <Link
-              className={`link_item ${
-                pathname === element.toLowerCase() ? "active" : ""
-              }`}
-              href={`${element.toLowerCase()}`}
-              onClick={() => handleNavClick(element)}
-              key={index}
-            >
-              {element === "/" ? "Home" : element.slice(1)}
-              <hr
-                className={`h-[0.3rem] w-[1.8rem] text-left ${
-                  pathname === element.toLowerCase()
-                    ? "line_active"
-                    : "line_hidden"
+        <div className="desktop_menu">
+          <div className="flex flex-between gap-[3.4rem] w-[48.7rem] justify-center ">
+            {navbarItems?.map((element, index) => (
+              <Link
+                className={`link_item ${
+                  pathname === element.toLowerCase() ? "active" : ""
                 }`}
-              />
-            </Link>
-          ))}
-        </div>
-        <div className="sm:flex hidden">
-          {session?.user ? (
-            <div className="flex gap-3 md:gap-5">
-              <button type="button" className="outline_btn" onClick={signOut}>
-                Sign Out
-              </button>
-              <Link href="/profile" className="flex gap-2 flex-center">
-                <Image
-                  src={session?.user.image}
-                  width={37}
-                  height={37}
-                  alt="user image"
-                  className="rounded-full"
+                href={`${element.toLowerCase()}`}
+                onClick={() => handleNavClick(element)}
+                key={index}
+              >
+                {element === "/" ? "Home" : element.slice(1)}
+                <hr
+                  className={`h-[0.3rem] w-[1.8rem] text-left ${
+                    pathname === element.toLowerCase()
+                      ? "line_active"
+                      : "line_hidden"
+                  }`}
                 />
               </Link>
-            </div>
-          ) : (
-            <>
-              {providers &&
-                Object.values(providers).map((provider) => (
-                  <button
-                    type="button"
-                    key={provider.name}
-                    onClick={() => signIn(provider.id)}
-                    className="btn w-[10.8rem] h-[4.7rem]"
-                  >
-                    Sign In
-                  </button>
-                ))}
-            </>
-          )}
+            ))}
+          </div>
+          <div className="flex">
+            {session?.user ? (
+              <div className="flex gap-3 md:gap-5">
+                <button type="button" className="outline_btn" onClick={signOut}>
+                  Sign Out
+                </button>
+                <Link href="/profile" className="flex gap-2 flex-center">
+                  <Image
+                    src={session?.user.image}
+                    width={37}
+                    height={37}
+                    alt="user image"
+                    className="rounded-full"
+                  />
+                </Link>
+              </div>
+            ) : (
+              <>
+                {providers &&
+                  Object.values(providers).map((provider) => (
+                    <button
+                      type="button"
+                      key={provider.name}
+                      onClick={() => signIn(provider.id)}
+                      className="btn w-[10.8rem] h-[4.7rem]"
+                    >
+                      Sign In
+                    </button>
+                  ))}
+              </>
+            )}
+          </div>
         </div>
       </nav>
       <div className="line"></div>
