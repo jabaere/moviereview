@@ -38,17 +38,17 @@ const Nav = () => {
   return (
     <div className="flex flex-col w-full mt-[1.5rem]">
       <nav
-        className={`flex justify-between items-center w-full py-[2.5rem] h-[6.7rem] ${rubik_Puddles.className}`}
+        className={`flex lg:flex-row flex-col justify-between items-center w-full pt-0 mb-[10rem] lg:mb-0 lg:py-[2.5rem] h-[6.7rem] ${rubik_Puddles.className}`}
       >
-        <div>
+        <div className="flex justify-start w-[80vw] lg:w-auto">
           <Link href="/" className="flex gap-2 flex-center">
-            <p className="text-primary-brown text-5xl flex flex-col items-center md:flex-row md:items-center">
+            <p className="text-primary-brown text-5xl flex flex-col items-center lg:flex-row lg:items-center">
               Movie<span className="text-primary-orange">Review</span>
             </p>
           </Link>
         </div>
-        <div className="desktop_menu">
-          <div className="flex flex-between gap-[3.4rem] w-[48.7rem] justify-center ">
+        <div className="flex justify-between items-center flex-col md:flex-row">
+          <div className="flex flex-between gap-[2.4rem] md:gap-[3.4rem] w-[48.7rem] justify-center my-[2rem] lg:my-0">
             {navbarItems?.map((element, index) => (
               <Link
                 className={`link_item ${
@@ -72,7 +72,11 @@ const Nav = () => {
           <div className="flex">
             {session?.user ? (
               <div className="flex gap-3 md:gap-5">
-                <button type="button" className="outline_btn" onClick={signOut}>
+                <button
+                  type="button"
+                  className="text-gray-500 text-xl font-archivo"
+                  onClick={signOut}
+                >
                   Sign Out
                 </button>
                 <Link href="/profile" className="flex gap-2 flex-center">
@@ -103,7 +107,7 @@ const Nav = () => {
           </div>
         </div>
       </nav>
-      <div className="line"></div>
+      <div className="line hidden lg:display-block"></div>
     </div>
   );
 };
