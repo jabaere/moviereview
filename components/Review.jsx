@@ -1,11 +1,9 @@
 "use client";
-
-import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 
-const Review = ({ comment, handleTagClick, handleEdit, handleDelete }) => {
+const Review = ({ comment, handleEdit, handleDelete }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
@@ -46,7 +44,7 @@ const Review = ({ comment, handleTagClick, handleEdit, handleDelete }) => {
       </p>
       <p
         className=" text-lg text-secondary-brown cursor-pointer"
-        onClick={() => handleTagClick && handleTagClick()}
+        onClick={() => router.push(`/${comment.key}`)}
       >
         {`# ${comment.movie_name}`}
       </p>

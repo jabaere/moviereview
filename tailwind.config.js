@@ -23,6 +23,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         fluid: "repeat(auto-fit, minmax(25rem,1fr))",
+        min: "repeat(auto-fit, minmax(35rem,1fr))",
       },
     },
   },

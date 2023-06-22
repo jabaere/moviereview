@@ -5,6 +5,7 @@ import Reviews from "@components/Reviews";
 import { useState, useEffect } from "react";
 import { useSession } from "next-auth/react";
 import CreateReview from "@/components/CreateReview";
+import imageLoader from "@/utils/loader";
 //save data
 
 export async function generateStaticParams() {
@@ -49,6 +50,7 @@ export default async function movDetails({ params }) {
             width={600}
             height={600}
             priority
+            loader={imageLoader}
           />
           <p className="pt-[4rem] not-italic font-medium text-[1.7rem] leading-[173%] tracking-[-0.01em] text-black font-archivo">
             {response.overview}

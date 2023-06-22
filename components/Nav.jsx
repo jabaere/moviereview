@@ -40,7 +40,7 @@ const Nav = () => {
       <nav
         className={`flex lg:flex-row flex-col justify-between items-center w-full pt-0 mb-[10rem] lg:mb-0 lg:py-[2.5rem] h-[6.7rem] ${rubik_Puddles.className}`}
       >
-        <div className="flex justify-start w-[80vw] lg:w-auto">
+        <div className="flex justify-center w-[80vw] lg:w-auto">
           <Link href="/" className="flex gap-2 flex-center">
             <p className="text-primary-brown text-5xl flex flex-col items-center lg:flex-row lg:items-center">
               Movie<span className="text-primary-orange">Review</span>

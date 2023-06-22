@@ -1,6 +1,6 @@
 const Pagination = ({ currentPage, setCurrentPage, data }) => {
   return (
-    <div className="flex justify-center w-[80vw]">
+    <div className="flex justify-center w-[80vw] mx-auto my-0">
       <div className="mx-auto my-0 flex items-baseline gap-10">
         {data && (
           <>

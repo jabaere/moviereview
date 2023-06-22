@@ -2,13 +2,15 @@
 import { useState } from "react";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
-
+import { updateUi } from "@/storage/atom";
+import { useAtom } from "jotai";
 import Form from "@/components/Form";
 
 const CreateReview = ({ movieId, movieName }) => {
   const router = useRouter();
   const { data: session } = useSession();
   const [submitting, setSubmitting] = useState(false);
+  const [update, setUpdate] = useAtom(updateUi);
   const [post, setPost] = useState({
     review: "",
     movie_name: movieName,
@@ -29,7 +31,10 @@ const CreateReview = ({ movieId, movieName }) => {
         }),
       });
       if (response.ok) {
-        router.push(`/${movieId}`);
+        setSubmitting(false);
+        setPost({ review: "", movie_name: "", key: "" });
+
+        setUpdate(Math.floor(Math.random() * Date.now()));
       }
     } catch (err) {
       console.log(err);

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-
+import imageLoader from "@/utils/loader";
 const Movie = ({ title, id, poster_path, release_date }) => {
   const imagepath = "https://image.tmdb.org/t/p/original";
 
@@ -20,6 +20,7 @@ const Movie = ({ title, id, poster_path, release_date }) => {
           width={350}
           height={150}
           className="rounded py-2"
+          loader={imageLoader}
         />
       </Link>
     </div>
