@@ -3,10 +3,10 @@ import "@/styles/globals.css";
 import Nav from "@/components/Nav";
 import Provider from "@/components/Provider";
 import { Provider as StoreProvider } from "jotai";
-export const metadata = {
-  title: "Review",
-  description: "Review movies",
-};
+// export const metadata = {
+//   title: "Review",
+//   description: "Review movies",
+// };
 
 const RootLayout = ({ children }) => {
   return (
