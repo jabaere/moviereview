@@ -19,7 +19,6 @@ export default function Top() {
   };
 
   useEffect(() => {
-    console.log("da");
     getMovieData();
   }, [currentPage]);
   //top_rated?language=en-US&page=1'

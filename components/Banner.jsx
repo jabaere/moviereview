@@ -2,8 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Banner = ({ data }) => {
-  console.log(data);
-
   //split film title
   const splitter = (title) => {
     const maxLength = 15; // Maximum length for the shortened title
