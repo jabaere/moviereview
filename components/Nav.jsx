@@ -43,7 +43,7 @@ const Nav = () => {
         <div className="flex justify-center w-[80vw] lg:w-auto">
           <Link href="/" className="flex gap-2 flex-center">
             <p className="text-primary-brown text-5xl flex flex-col items-center lg:flex-row lg:items-center">
-              Movie<span className="text-primary-orange">Review</span>
+              Review<span className="text-primary-orange">Hub</span>
             </p>
           </Link>
         </div>
